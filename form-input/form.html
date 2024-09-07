@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Form</title>
+  <link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1>Resume Form</h1>
+      <p>Please fill in your details to build your resume</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <form action="resume.html" class="resume-form">
+      <!-- Personal Info Section -->
+      <section class="form-section">
+        <h2>Personal Info</h2>
+        <div class="input-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div class="input-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last-name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="input-group">
+          <label for="profile-pic">Profile Picture</label>
+          <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="form-section">
+        <h2>Education</h2>
+        <div class="input-group">
+          <label for="degree">Degree</label>
+          <input type="text" id="degree" name="degree" required>
+        </div>
+        <div class="input-group">
+          <label for="institution">Institution</label>
+          <input type="text" id="institution" name="institution" required>
+        </div>
+        <div class="input-group">
+          <label for="graduation-year">Graduation Year</label>
+          <input type="number" id="graduation-year" name="graduation-year" required>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="form-section">
+        <h2>Skills</h2>
+        <div class="input-group">
+          <label for="skills">List Your Skills (comma separated)</label>
+          <input type="text" id="skills" name="skills" required>
+        </div>
+      </section>
+
+      <!-- Work Experience Section -->
+      <section class="form-section">
+        <h2>Work Experience</h2>
+        <div class="input-group">
+          <label for="job-title">Job Title</label>
+          <input type="text" id="job-title" name="job-title" required>
+        </div>
+        <div class="input-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" required>
+        </div>
+        <div class="input-group">
+          <label for="start-date">Start Date</label>
+          <input type="date" id="start-date" name="start-date" required>
+        </div>
+        <div class="input-group">
+          <label for="end-date">End Date</label>
+          <input type="date" id="end-date" name="end-date">
+        </div>
+        <div class="input-group">
+          <label for="description">Job Description</label>
+          <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+      </section>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Generate Resume</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Developed and Designed by Taha Ahmed</p>
+  </footer>
+</body>
+<script src="form.js"></script>
+</html>
