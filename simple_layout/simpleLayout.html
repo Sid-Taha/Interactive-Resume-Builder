@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Resume Preview</title>
+  <link rel="stylesheet" href="./simpleLayout.css">
+</head>
+<body>
+  <!-- Resume Preview Page -->
+  <div class="resume-preview-container">
+    <!-- Left Section (Resume Preview) -->
+    <section class="resume-preview">
+      <header>
+        <h1 id="name"></h1>
+        <h3 id="title"></h3>
+      </header>
+      <div class="content">
+        <section class="personal-info">
+          <h2>Personal Information</h2>
+          <p id="email"></p>
+          <p id="phone"></p>
+        </section>
+
+        <section class="education">
+          <h2>Education</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Institution</th>
+                <th>Degree</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody id="education"></tbody>
+          </table>
+        </section>
+
+        <section class="skills">
+          <h2>Skills</h2>
+          <ul id="skills"></ul>
+        </section>
+
+        <section class="work-experience">
+          <h2>Work Experience</h2>
+          <ul id="experience"></ul>
+        </section>
+      </div>
+      <button onclick="window.print()">Print Resume</button>
+    </section>
+
+    <!-- Right Section (Customization) -->
+    <aside class="resume-customize">
+      <h2>Customize Resume</h2>
+      <div class="customization">
+        <label for="font-type">Font Type:</label>
+        <select id="font-type" onchange="changeFontType()">
+          <option value="Arial">Arial</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+
+        <label for="title-case">Heading Title Case:</label>
+        <select id="title-case" onchange="changeTitleCase()">
+          <option value="uppercase">UPPERCASE</option>
+          <option value="capitalize">Capitalize</option>
+          <option value="lowercase">Lowercase</option>
+        </select>
+
+        <label for="title-style">Heading Title Style:</label>
+        <select id="title-style" onchange="changeTitleStyle()">
+          <option value="ruled">Ruled</option>
+          <option value="shaded">Shaded</option>
+        </select>
+
+        <label for="rule-position">Title Rule Position:</label>
+        <select id="rule-position" onchange="changeRulePosition()">
+          <option value="above">Above</option>
+          <option value="below">Below</option>
+        </select>
+
+        <label for="image-display">Show/Hide Image:</label>
+        <input type="checkbox" id="image-display" onchange="toggleImageDisplay()">
+
+        <label for="margin">Horizontal Margin:</label>
+        <input type="range" id="margin" min="0" max="50" value="0" onchange="changeMargin()">
+
+        <label for="line-spacing">Line Spacing:</label>
+        <input type="range" id="line-spacing" min="1" max="2" step="0.1" value="1" onchange="changeLineSpacing()">
+
+        <label for="column-number">Center Column Number:</label>
+        <input type="number" id="column-number" min="1" max="3" value="1" onchange="changeColumnNumber()">
+      </div>
+    </aside>
+  </div>
+
+  <script src="simpleLayoutScript.js"></script>
+</body>
+</html>

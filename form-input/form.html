@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume Form</title>
   <link rel="stylesheet" href="formStyle.css">
 </head>
+
 <body>
   <!-- Header -->
   <header class="header">
@@ -17,7 +19,7 @@
 
   <!-- Main Content -->
   <main class="main">
-    <form action="resume.html" class="resume-form">
+    <form id="resumeForm" class="resume-form">
       <!-- Personal Info Section -->
       <section class="form-section">
         <h2>Personal Info</h2>
@@ -42,6 +44,7 @@
           <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
         </div>
       </section>
+
 
       <!-- Education Section -->
       <section class="form-section">
@@ -95,7 +98,9 @@
       </section>
 
       <!-- Submit Button -->
-      <button type="submit" class="submit-btn">Generate Resume</button>
+      <a href="../simple_layout/simpleLayout.html" target="_blank">
+        <button type="button" id="generateResumeBtn" class="submit-btn">Generate Resume</button>
+      </a>
     </form>
   </main>
 
@@ -104,5 +109,6 @@
     <p>Developed and Designed by Taha Ahmed</p>
   </footer>
 </body>
-<script src="form.js"></script>
+<script src="formScript.js"></script>
+
 </html>
