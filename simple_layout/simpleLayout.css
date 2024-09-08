@@ -69,3 +69,80 @@ button {
 input[type="checkbox"] {
   margin-bottom: 20px;
 }
+
+
+/* CSS file (e.g., simpleLayout.css) */
+
+/* Container for picture and name */
+.header-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Adjust as needed */
+  margin-top: 25px;
+  justify-content: space-around;
+}
+
+/* Style for the profile picture */
+.header-content img {
+  border-radius: 40%; /* Optional: makes the image round */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  margin-right: 20px; /* Space between the image and text */
+  margin-left: 30px;
+}
+
+/* Style for the name and title */
+.header-content div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Example styles for the resume preview */
+.resume-preview {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  margin-left: 150px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 18px;
+  margin-left: 150px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+
+/* Existing CSS styles for the page */
+
+.resume-preview-container {
+  display: flex;
+}
+
+.resume-preview {
+  width: 70%;
+  /* Other styles */
+}
+
+.resume-customize {
+  width: 30%;
+  /* Other styles */
+}
+
+/* Print-specific styles */
+@media print {
+  .resume-customize {
+    display: none; /* Hide the right section (customization) during printing */
+  }
+
+  /* Optionally, you can also adjust styles for the printed version */
+  .resume-preview {
+    width: 100%; /* Ensure the resume preview uses the full width of the printed page */
+  }
+}

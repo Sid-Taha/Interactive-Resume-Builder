@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Resume Preview</title>
   <link rel="stylesheet" href="./simpleLayout.css">
 </head>
+
 <body>
   <!-- Resume Preview Page -->
   <div class="resume-preview-container">
     <!-- Left Section (Resume Preview) -->
     <section class="resume-preview">
       <header>
-        <h1 id="name"></h1>
-        <h3 id="title"></h3>
+        <!-- Container for picture and name -->
+        <div class="header-content">
+          <div>
+            <h1 id="name"></h1>
+            <h3 id="title"></h3>
+          </div>
+          <img id="profile-pic-preview" src="" alt="Profile Picture" style="display: none; max-width: 150px;">
+        </div>
       </header>
       <div class="content">
         <section class="personal-info">
@@ -69,6 +77,7 @@
 
         <label for="title-style">Heading Title Style:</label>
         <select id="title-style" onchange="changeTitleStyle()">
+          <option value="none">None</option>
           <option value="ruled">Ruled</option>
           <option value="shaded">Shaded</option>
         </select>
@@ -87,13 +96,11 @@
 
         <label for="line-spacing">Line Spacing:</label>
         <input type="range" id="line-spacing" min="1" max="2" step="0.1" value="1" onchange="changeLineSpacing()">
-
-        <label for="column-number">Center Column Number:</label>
-        <input type="number" id="column-number" min="1" max="3" value="1" onchange="changeColumnNumber()">
       </div>
     </aside>
   </div>
 
   <script src="simpleLayoutScript.js"></script>
 </body>
+
 </html>
