@@ -55,7 +55,7 @@ window.addEventListener("load", () => {
     else {
         newUserName = "user";
     }
-    let baseUrl = "http://127.0.0.1:5500/resume/index.html";
+    let baseUrl = "https://interactive-resume-builder-sigma.vercel.app/simple_layout/simpleLayout.html";
     let uniqueUrl = `${baseUrl}?/${newUserName}`;
     share_btn?.addEventListener("click", () => {
         document.getElementById('anchor')?.setAttribute("href", uniqueUrl);
