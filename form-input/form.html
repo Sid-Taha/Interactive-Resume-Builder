@@ -1,114 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Form</title>
+  <title>Document</title>
   <link rel="stylesheet" href="formStyle.css">
 </head>
-
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <h1>Resume Form</h1>
-      <p>Please fill in your details to build your resume</p>
+  <h1 style="color: #f9a825;" id="heading">Resume form</h1>
+  <form id="form">
+    <h2>Personal details</h2>
+    <hr style="margin-bottom: 20px;">
+   
+    <!------------------------------- Personal details --------------------------------------->
+    <div class="form-group">
+      <label class="label" for="name">Name:</label>
+      <input class="input" type="text" id="name" required>
     </div>
-  </header>
 
-  <!-- Main Content -->
-  <main class="main">
-    <form id="resumeForm" class="resume-form">
-      <!-- Personal Info Section -->
-      <section class="form-section">
-        <h2>Personal Info</h2>
-        <div class="input-group">
-          <label for="first-name">First Name</label>
-          <input type="text" id="first-name" name="first-name" required>
-        </div>
-        <div class="input-group">
-          <label for="last-name">Last Name</label>
-          <input type="text" id="last-name" name="last-name" required>
-        </div>
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="input-group">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div class="input-group">
-          <label for="profile-pic">Profile Picture</label>
-          <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
-          <br>
-        </div>
-      </section>
+    <div class="form-group">
+      <label class="label" for="desig">Designation:</label>
+      <input class="input" type="text" id="desig" required>
+    </div>
 
-      <!-- Education Section -->
-      <section class="form-section">
-        <h2>Education</h2>
-        <div class="input-group">
-          <label for="degree">Degree</label>
-          <input type="text" id="degree" name="degree" required>
-        </div>
-        <div class="input-group">
-          <label for="institution">Institution</label>
-          <input type="text" id="institution" name="institution" required>
-        </div>
-        <div class="input-group">
-          <label for="graduation-year">Graduation Year</label>
-          <input type="number" id="graduation-year" name="graduation-year" required>
-        </div>
-      </section>
+    <div class="form-group">
+      <label class="label" for="Phone">Phone:</label>
+      <input class="input" type="tel" id="Phone" required>
+    </div>
 
-      <!-- Skills Section -->
-      <section class="form-section">
-        <h2>Skills</h2>
-        <div class="input-group">
-          <label for="skills">List Your Skills (comma separated)</label>
-          <input type="text" id="skills" name="skills" required>
-        </div>
-      </section>
+    <div class="form-group">
+      <label class="label" for="email">Email:</label>
+      <input class="input" type="email" id="email" required>
+    </div>
 
-      <!-- Work Experience Section -->
-      <section class="form-section">
-        <h2>Work Experience</h2>
-        <div class="input-group">
-          <label for="job-title">Job Title</label>
-          <input type="text" id="job-title" name="job-title" required>
-        </div>
-        <div class="input-group">
-          <label for="company">Company</label>
-          <input type="text" id="company" name="company" required>
-        </div>
-        <div class="input-group">
-          <label for="start-date">Start Date</label>
-          <input type="date" id="start-date" name="start-date" required>
-        </div>
-        <div class="input-group">
-          <label for="end-date">End Date</label>
-          <input type="date" id="end-date" name="end-date">
-        </div>
-        <div class="input-group">
-          <label for="description">Job Description</label>
-          <textarea id="description" name="description" rows="4" required></textarea>
-        </div>
-      </section>
+    <div class="form-group">
+      <label class="label" for="add">Address:</label>
+      <input class="input" type="text" id="add" required>
+    </div>
+    
+    <div class="form-group">
+      <label class="label" for="LinkedIn">LinkedIn:</label>
+      <input class="input" type="text" id="LinkedIn" required>
+    </div>
 
-      <!-- Submit Button -->
-      <a href="../simple_layout/simpleLayout.html">
-        <button type="button" id="generateResumeBtn" class="submit-btn">Generate Resume</button>
-      </a>
-    </form>
-  </main>
+    <div class="form-group">
+      <label class="label" for="pic">Profile Picture:</label>
+      <input class="input" type="file" id="pic" required>
+    </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Developed and Designed by Taha Ahmed</p>
-  </footer>
+
+
+<!------------------------------- Education --------------------------------------->
+    <h2>Education</h2>
+    <hr style="margin-bottom: 20px;">
+
+    <div id="eduDiv">
+      <div class="eduDetails">
+        <div class="form-group">
+          <label class="label" for="pass">Passing Year:</label>
+          <input class="input" type="number" id="pass" required>
+        </div>
+    
+        <div class="form-group">
+          <label class="label" for="deg">Degree:</label>
+          <input class="input" type="text" id="deg" required>
+        </div>
+    
+        <div class="form-group">
+          <label class="label" for="uni">Institution:</label>
+          <input class="input" type="text" id="uni" required>
+        </div>
+      </div>
+      
+      <div id="eduDetails2" class="hideUnhide">
+        <div class="form-group">
+          <label class="label" for="pass">Passing Year:</label>
+          <input class="input" type="number" id="pass2" >
+        </div>
+    
+        <div class="form-group">
+          <label class="label" for="deg">Degree:</label>
+          <input class="input" type="text" id="deg2" >
+        </div>
+    
+        <div class="form-group">
+          <label class="label" for="uni">Institution:</label>
+          <input class="input" type="text" id="uni2" >
+        </div>
+      </div>
+    </div>
+
+    <div class="AddBtn"><button type="button" id="addEdu">Add More</button></div>
+
+
+
+<!------------------------------- Expertise --------------------------------------->
+<h2>Expertise</h2>
+<hr style="margin-bottom: 20px;">
+<div id="expertiseDiv">
+  <div class="expertiseDetails">
+    <div class="form-group">
+      <label class="label" for="skill1">Skill:</label>
+      <input class="input mb-20" type="text" id="skill1" required>
+      <label class="label" for="skill_level1">Proficiency level:</label>
+      <input class="input mb-20" type="number" id="skill_level1" required>
+    </div>
+
+      <div id="expertiseDetails2" class="hideUnhide">
+        <div class="form-group">
+          <label class="label" for="skill2">Skill:</label>
+          <input class="input mb-20" type="text" id="skill2" >
+          <label class="label" for="skill_level2">Proficiency level:</label>
+          <input class="input mb-20" type="number" id="skill_level2" >
+        </div>
+  
+        <div class="form-group">
+          <label class="label" for="skill3">Skill:</label>
+          <input class="input mb-20" type="text" id="skill3" >
+          <label class="label" for="skill_level3">Proficiency level:</label>
+          <input class="input mb-20" type="number" id="skill_level3" >
+        </div>
+
+
+        <div class="form-group">
+          <label class="label" for="skill4">Skill:</label>
+          <input class="input mb-20" type="text" id="skill4" >
+          <label class="label" for="skill_level4">Proficiency level:</label>
+          <input class="input mb-20" type="number" id="skill_level4" >
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+<div class="AddBtn"><button type="button" id="addSkill">Add More</button></div>
+
+
+
+<!------------------------------- Language --------------------------------------->
+    <h2>Language</h2>
+    <hr style="margin-bottom: 20px;">
+    <div class="form-group">
+      <label class="label" for="lang">Language 1:</label>
+      <input class="input mb-20" type="text" id="lang" required>
+      <label class="label" for="lang">Language 2:</label>
+      <input class="input" type="text" id="lang2" required>
+    </div>
+
+
+<!------------------------------- Experience --------------------------------------->
+    <h2>Experience</h2>
+    <hr style="margin-bottom: 20px;">
+    <div class="form-group">
+      <label class="label" for="styear">start Year:</label>
+      <input class="input mb-20" type="number" id="styear" required>
+
+      <label class="label" for="endyear">End Year:</label>
+      <input class="input mb-20" type="number" id="endyear" required>
+
+      <label class="label" for="company">Company:</label>
+      <input class="input mb-20" type="text" id="company" required>
+
+      <label class="label" for="comlocation">Company location:</label>
+      <input class="input mb-20" type="text" id="comlocation" required>
+
+      <label class="label" for="jobTitle">Job Title:</label>
+      <input class="input mb-20" type="text" id="jobTitle" required>
+
+      <label class="label" for="achv">Achievements:</label>
+      <input class="input mb-20" type="text" id="achv1" required>
+      <input class="input mb-20" type="text" id="achv2" required>
+      <input class="input mb-20" type="text" id="achv3" required>
+    </div>
+    
+    <div id="expDetails2" class="form-group hideUnhide">
+      <label class="label" for="styear2">start Year:</label>
+      <input class="input mb-20" type="number" id="styear2" >
+
+      <label class="label" for="endyear2">End Year:</label>
+      <input class="input mb-20" type="number" id="endyear2" >
+
+      <label class="label" for="company2">Company:</label>
+      <input class="input mb-20" type="text" id="company2" >
+
+      <label class="label" for="comlocation2">Company location:</label>
+      <input class="input mb-20" type="text" id="comlocation2">
+
+      <label class="label" for="jobTitle2">Job Title:</label>
+      <input class="input mb-20" type="text" id="jobTitle2">
+
+      <label class="label" for="achv2">Achievements:</label>
+      <input class="input mb-20" type="text" id="achv12" >
+      <input class="input mb-20" type="text" id="achv22" >
+      <input class="input mb-20" type="text" id="achv32" >
+    </div>
+    <div class="AddBtn"><button type="button" id="addExp">Add More</button></div>
+
+    <br>
+    <hr style="margin-bottom: 20px;">
+    <div class="btnDiv"><input id="submitBtn" class="submit" type="submit"></div>
+  </form>
+
 </body>
 <script src="formScript.js"></script>
-
 </html>

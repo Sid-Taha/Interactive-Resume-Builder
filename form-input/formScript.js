@@ -1,68 +1,154 @@
 "use strict";
-document.getElementById('generateResumeBtn').addEventListener('click', async (e) => {
-    // Collect data from the form
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const degree = document.getElementById('degree').value;
-    const institution = document.getElementById('institution').value;
-    const graduationYear = document.getElementById('graduation-year').value;
-    const skills = document.getElementById('skills').value;
-    const jobTitle = document.getElementById('job-title').value;
-    const company = document.getElementById('company').value;
-    const startDate = document.getElementById('start-date').value;
-    const endDate = document.getElementById('end-date').value;
-    const description = document.getElementById('description').value;
-    // Handle file input
-    const fileInput = document.getElementById('profile-pic');
-    let imageData = null;
-    if (fileInput.files && fileInput.files[0]) {
-        const file = fileInput.files[0];
+let myName = document.getElementById("name");
+let desig = document.getElementById("desig");
+let Phone = document.getElementById("Phone");
+let email = document.getElementById("email");
+let add = document.getElementById("add");
+let LinkedIn = document.getElementById("LinkedIn");
+let pic = document.getElementById("pic");
+let pass = document.getElementById("pass");
+let deg = document.getElementById("deg");
+let uni = document.getElementById("uni");
+let pass2 = document.getElementById("pass2");
+let deg2 = document.getElementById("deg2");
+let uni2 = document.getElementById("uni2");
+let skill1 = document.getElementById("skill1");
+let skill_level1 = document.getElementById("skill_level1");
+let skill2 = document.getElementById("skill2");
+let skill_level2 = document.getElementById("skill_level2");
+let skill3 = document.getElementById("skill3");
+let skill_level3 = document.getElementById("skill_level3");
+let skill4 = document.getElementById("skill4");
+let skill_level4 = document.getElementById("skill_level4");
+let lang = document.getElementById("lang");
+let lang2 = document.getElementById("lang2");
+let styear = document.getElementById("styear");
+let endyear = document.getElementById("endyear");
+let company = document.getElementById("company");
+let comlocation = document.getElementById("comlocation");
+let jobTitle = document.getElementById("jobTitle");
+let achv1 = document.getElementById("achv1");
+let achv2 = document.getElementById("achv2");
+let achv3 = document.getElementById("achv3");
+let styear2 = document.getElementById("styear2");
+let endyear2 = document.getElementById("endyear2");
+let company2 = document.getElementById("company2");
+let comlocation2 = document.getElementById("comlocation2");
+let jobTitle2 = document.getElementById("jobTitle2");
+let achv12 = document.getElementById("achv12");
+let achv22 = document.getElementById("achv22");
+let achv32 = document.getElementById("achv32");
+//----------------   Education Add More -------------------------------------------------
+let addEdu = document.getElementById("addEdu");
+let eduDetails2 = document.getElementById("eduDetails2");
+addEdu?.addEventListener('click', () => {
+    eduDetails2?.classList.remove('hideUnhide');
+});
+//----------------   skill Add More -------------------------------------------------
+let addSkill = document.getElementById("addSkill");
+let expertiseDetails2 = document.getElementById("expertiseDetails2");
+addSkill?.addEventListener('click', () => {
+    expertiseDetails2?.classList.remove('hideUnhide');
+});
+//----------------   skill Add More -------------------------------------------------
+let addExp = document.getElementById("addExp");
+let expDetails2 = document.getElementById("expDetails2");
+addExp?.addEventListener('click', () => {
+    expDetails2?.classList.remove('hideUnhide');
+});
+//----------------   form submit -------------------------------------------------
+let form = document.getElementById('form');
+form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    localStorage.setItem('myName', myName.value);
+    console.log(localStorage.getItem('myName'));
+    localStorage.setItem('desig', desig.value);
+    console.log(localStorage.getItem('desig'));
+    localStorage.setItem('Phone', Phone.value);
+    console.log(localStorage.getItem('Phone'));
+    localStorage.setItem('email', email.value);
+    console.log(localStorage.getItem('email'));
+    localStorage.setItem('add', add.value);
+    console.log(localStorage.getItem('add'));
+    localStorage.setItem('LinkedIn', LinkedIn.value);
+    console.log(localStorage.getItem('LinkedIn'));
+    localStorage.setItem('pic', pic.value);
+    console.log(localStorage.getItem('pic'));
+    localStorage.setItem('pass', pass.value);
+    console.log(localStorage.getItem('pass'));
+    localStorage.setItem('deg', deg.value);
+    console.log(localStorage.getItem('deg'));
+    localStorage.setItem('uni', uni.value);
+    console.log(localStorage.getItem('uni'));
+    localStorage.setItem('pass2', pass2.value);
+    console.log(localStorage.getItem('pass2'));
+    localStorage.setItem('deg2', deg2.value);
+    console.log(localStorage.getItem('deg2'));
+    localStorage.setItem('uni2', uni2.value);
+    console.log(localStorage.getItem('uni2'));
+    localStorage.setItem('skill1', skill1.value);
+    console.log(localStorage.getItem('skill1'));
+    localStorage.setItem('skill_level1', skill_level1.value);
+    console.log(localStorage.getItem('skill_level1'));
+    localStorage.setItem('skill2', skill2.value);
+    console.log(localStorage.getItem('skill2'));
+    localStorage.setItem('skill_level2', skill_level2.value);
+    console.log(localStorage.getItem('skill_level2'));
+    localStorage.setItem('skill3', skill3.value);
+    console.log(localStorage.getItem('skill3'));
+    localStorage.setItem('skill_level3', skill_level3.value);
+    console.log(localStorage.getItem('skill_level3'));
+    localStorage.setItem('skill4', skill4.value);
+    console.log(localStorage.getItem('skill4'));
+    localStorage.setItem('skill_level4', skill_level4.value);
+    console.log(localStorage.getItem('skill_level4'));
+    localStorage.setItem('lang', lang.value);
+    console.log(localStorage.getItem('lang'));
+    localStorage.setItem('lang2', lang2.value);
+    console.log(localStorage.getItem('lang2'));
+    localStorage.setItem('styear', styear.value);
+    console.log(localStorage.getItem('styear'));
+    localStorage.setItem('endyear', endyear.value);
+    console.log(localStorage.getItem('endyear'));
+    localStorage.setItem('company', company.value);
+    console.log(localStorage.getItem('company'));
+    localStorage.setItem('comlocation', comlocation.value);
+    console.log(localStorage.getItem('comlocation'));
+    localStorage.setItem('jobTitle', jobTitle.value);
+    console.log(localStorage.getItem('jobTitle'));
+    localStorage.setItem('achv1', achv1.value);
+    console.log(localStorage.getItem('achv1'));
+    localStorage.setItem('achv2', achv2.value);
+    console.log(localStorage.getItem('achv2'));
+    localStorage.setItem('achv3', achv3.value);
+    console.log(localStorage.getItem('achv3'));
+    localStorage.setItem('styear2', styear2.value);
+    console.log(localStorage.getItem('styear2'));
+    localStorage.setItem('endyear2', endyear2.value);
+    console.log(localStorage.getItem('endyear2'));
+    localStorage.setItem('company2', company2.value);
+    console.log(localStorage.getItem('company2'));
+    localStorage.setItem('comlocation2', comlocation2.value);
+    console.log(localStorage.getItem('comlocation2'));
+    localStorage.setItem('jobTitle2', jobTitle2.value);
+    console.log(localStorage.getItem('jobTitle2'));
+    localStorage.setItem('achv12', achv12.value);
+    console.log(localStorage.getItem('achv12'));
+    localStorage.setItem('achv22', achv22.value);
+    console.log(localStorage.getItem('achv22'));
+    localStorage.setItem('achv32', achv32.value);
+    console.log(localStorage.getItem('achv32'));
+    if (pic.files && pic.files[0]) {
         const reader = new FileReader();
-        reader.onloadend = () => {
-            imageData = reader.result;
-            // Save data to localStorage
-            const resumeData = {
-                firstName,
-                lastName,
-                email,
-                phone,
-                degree,
-                institution,
-                graduationYear,
-                skills: skills.split(',').map(skill => skill.trim()),
-                jobTitle,
-                company,
-                startDate,
-                endDate,
-                description,
-                image: imageData // Add image data to the object
-            };
-            localStorage.setItem('resumeData', JSON.stringify(resumeData));
-            console.log(localStorage.getItem('resumeData'));
+        reader.onload = function () {
+            const base64Image = reader.result;
+            localStorage.setItem('form_profilePic', base64Image);
+            console.log(localStorage.getItem('form_profilePic'));
+            window.location.href = "../simple_layout/simpleLayout.html";
         };
-        reader.readAsDataURL(file); // Convert file to base64 string
+        reader.readAsDataURL(pic.files[0]);
     }
     else {
-        // Save data to localStorage without image
-        const resumeData = {
-            firstName,
-            lastName,
-            email,
-            phone,
-            degree,
-            institution,
-            graduationYear,
-            skills: skills.split(',').map(skill => skill.trim()),
-            jobTitle,
-            company,
-            startDate,
-            endDate,
-            description,
-            image: null // No image data
-        };
-        localStorage.setItem('resumeData', JSON.stringify(resumeData));
-        console.log(localStorage.getItem('resumeData'));
+        window.location.href = "../simple_layout/simpleLayout.html";
     }
 });

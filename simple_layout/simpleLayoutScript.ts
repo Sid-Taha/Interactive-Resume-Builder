@@ -1,50 +1,179 @@
-window.addEventListener('load', () => {
-  const resumeData = JSON.parse(localStorage.getItem('resumeData') ?? '{}');
-  console.log(resumeData);
+window.addEventListener("load", () => {
+  // Setting localStorage values into HTML elements
 
-  if (resumeData) {
-    // Populate the resume preview
-    document.getElementById('name')!.textContent = `${resumeData.firstName} ${resumeData.lastName}`;
-    document.getElementById('email')!.textContent = resumeData.email;
-    document.getElementById('phone')!.textContent = resumeData.phone;
+let userName = document.getElementById('name')!.textContent = localStorage.getItem('myName') || 'TAHA AHMED SIDDIQUI';
+document.getElementById('designation')!.textContent = localStorage.getItem('desig') || 'FRONTEND DEVELOPER';
+document.getElementById('phone')!.textContent = localStorage.getItem('Phone') || '0300-123-4567';
+document.getElementById('email')!.textContent = localStorage.getItem('email') || 'taha_ahmed@gmail.com';
+document.getElementById('address')!.textContent = localStorage.getItem('add') || '123, Karachi';
+document.getElementById('linkId')!.textContent = localStorage.getItem('LinkedIn') || 'linkedin.com/in/taha-ahmed';
 
-    // Education section
-    const educationRow = document.createElement('tr');
-    educationRow.innerHTML = `<td>${resumeData.institution}</td><td>${resumeData.degree}</td><td>${resumeData.graduationYear}</td>`;
-    document.getElementById('education')!.appendChild(educationRow);
+// Education section
+document.getElementById('year1')!.textContent = localStorage.getItem('pass') || '2024';
+document.getElementById('course1')!.textContent = localStorage.getItem('deg') || 'Computer science';
+document.getElementById('institute')!.textContent = localStorage.getItem('uni') || 'GIAIC';
 
-    // Skills section
-    resumeData.skills.forEach((skill: string | null) => {
-      const skillItem = document.createElement('li');
-      skillItem.textContent = skill;
-      document.getElementById('skills')!.appendChild(skillItem);
-    });
+document.getElementById('year2')!.textContent = localStorage.getItem('pass2') || '2020';
+document.getElementById('course2')!.textContent = localStorage.getItem('deg2') || 'Abc Degree';
+document.getElementById('institute2')!.textContent = localStorage.getItem('uni2') || 'Xyz University';
 
-    // Work experience section
-    const experienceItem = document.createElement('li');
-    experienceItem.innerHTML = `<strong>${resumeData.jobTitle}</strong> at ${resumeData.company} (${resumeData.startDate} - ${resumeData.endDate || 'Present'}): ${resumeData.description}`;
-    document.getElementById('experience')!.appendChild(experienceItem);
+// Experience section
+document.getElementById('ex_start_year')!.textContent = localStorage.getItem('styear') || '2020';
+document.getElementById('ex_end_year')!.textContent = localStorage.getItem('endyear') || '2024';
+document.getElementById('company')!.textContent = localStorage.getItem('company') || 'XYZ Company';
+document.getElementById('location')!.textContent = localStorage.getItem('comlocation') || 'Karachi';
+document.getElementById('role')!.textContent = localStorage.getItem('jobTitle') || 'abc Developer';
 
-    // Handle profile picture
-    const profilePic = document.getElementById('profile-pic-preview') as HTMLImageElement;
-    if (resumeData.image) {
-      profilePic.src = resumeData.image;
-      profilePic.style.display = 'block';  // Show the image
-    }
-  }
-});
+document.getElementById('ach1')!.textContent = localStorage.getItem('achv1') || 'Developed and implemented new features for client-facing applications';
+document.getElementById('ach2')!.textContent = localStorage.getItem('achv2') || 'Collaborated with cross-functional teams to debug and optimize code for performance improvements';
+document.getElementById('ach3')!.textContent = localStorage.getItem('achv3') || 'Led code reviews and mentored junior developers';
 
-function changeFontType() {
-  const selectedFont = (document.getElementById('font-type') as HTMLSelectElement).value;
-  const resumePreview = document.querySelector('.resume-preview') as HTMLElement;
-  
-  // Apply the selected font to the resume preview section
-  resumePreview.style.fontFamily = selectedFont;
+document.getElementById('ex_start_year2')!.textContent = localStorage.getItem('styear2') || '2020';
+document.getElementById('ex_end_year2')!.textContent = localStorage.getItem('endyear2') || '2024';
+document.getElementById('company2')!.textContent = localStorage.getItem('company2') || 'XYZ Company';
+document.getElementById('location2')!.textContent = localStorage.getItem('comlocation2') || 'Karachi';
+document.getElementById('role2')!.textContent = localStorage.getItem('jobTitle2') || 'abc Developer';
+
+document.getElementById('ach12')!.textContent = localStorage.getItem('achv12') || 'Developed and implemented new features for client-facing applications';
+document.getElementById('ach22')!.textContent = localStorage.getItem('achv22') || 'Collaborated with cross-functional teams to debug and optimize code for performance improvements';
+document.getElementById('ach32')!.textContent = localStorage.getItem('achv32') || 'Led code reviews and mentored junior developers';
+
+// Skill section
+document.getElementById('skill1_level1')!.textContent = localStorage.getItem('skill_level1') || '10';
+document.getElementById('skill1')!.textContent = localStorage.getItem('skill1') || 'HTML';
+
+
+document.getElementById('skill2_level1')!.textContent = localStorage.getItem('skill_level2') || '20';
+document.getElementById('skill2')!.textContent = localStorage.getItem('skill2') || 'CSS';
+
+
+document.getElementById('skill3_level1')!.textContent = localStorage.getItem('skill_level3') || '30';
+document.getElementById('skill3')!.textContent = localStorage.getItem('skill3') || 'TypeScript';
+;
+
+document.getElementById('skill4_level1')!.textContent = localStorage.getItem('skill_level4') || '40';
+document.getElementById('skill4')!.textContent = localStorage.getItem('skill4') || 'Next.js';
+
+
+// Language section
+document.getElementById('lang1')!.textContent = localStorage.getItem('lang') || 'English';
+document.getElementById('lang2')!.textContent = localStorage.getItem('lang2') || 'Urdu';
+
+
+// Picture section
+(document.getElementById('picture') as HTMLImageElement).src = localStorage.getItem('form_profilePic') || 'profile.png';
+
+
+//-------------- shareable link button ---------------------
+let share_btn = document.getElementById("share_btn")
+let newUserName
+if(userName){
+ newUserName = userName.toLowerCase().replace(/\s+/g, "-")
+}else{
+newUserName = "user"
 }
 
+let baseUrl = "http://127.0.0.1:5500/resume/index.html";
+let uniqueUrl = `${baseUrl}?/${newUserName}`
+
+share_btn?.addEventListener("click", ()=>{
+document.getElementById('anchor')?.setAttribute("href", uniqueUrl)
+})
+
+
+//-------------- copy link button ---------------------
+let copy_btn = document.getElementById("copy_btn")
+
+copy_btn?.addEventListener("click", ()=>{
+navigator.clipboard.writeText(uniqueUrl).then(()=>{
+  alert("copy done")
+})
+
+})
+
+})
+
+
+
+
+
+//-------------- edit button ---------------------
+let edit_btn = document.getElementById("edit_btn");
+
+edit_btn?.addEventListener("click", ()=>{
+window.history.back()
+})
+
+
+//-------------- contact section ---------------------
+let contact = document.getElementById('contact')
+let contact_btn = document.getElementById('contact_btn')
+
+contact_btn?.addEventListener('click', ()=>{
+contact!.classList.toggle('hide')
+})
+
+//-------------- education section ---------------------
+let education = document.getElementById('education')
+let edu_btn = document.getElementById('edu_btn')
+
+edu_btn?.addEventListener('click', ()=>{
+education!.classList.toggle('hide')
+})
+
+//-------------- language section ---------------------
+let language = document.getElementById('language')
+let lang_btn = document.getElementById('lang_btn')
+
+lang_btn?.addEventListener('click', ()=>{
+language!.classList.toggle('hide')
+})
+
+//-------------- language section ---------------------
+let skill = document.getElementById('skill')
+let skill_btn = document.getElementById('skill_btn')
+
+skill_btn?.addEventListener('click', ()=>{
+skill!.classList.toggle('hide')
+})
+
+//-------------- ref section ---------------------
+let ref_section = document.getElementById('ref')
+let ref_btn = document.getElementById('ref_btn')
+
+ref_btn?.addEventListener('click', ()=>{
+ref_section!.classList.toggle('hide')
+})
+
+//-------------- exp section ---------------------
+let exp_section = document.getElementById('experience')
+let exp_btn = document.getElementById('exp_btn')
+
+exp_btn?.addEventListener('click', ()=>{
+exp_section!.classList.toggle('hide')
+})
+
+//-------------- print section ---------------------
+let print_btn = document.getElementById('print_btn')
+
+print_btn?.addEventListener('click', ()=>{
+window.print()
+})
+
+//--------------- Font type ----------------------------
+function changeFontType() {
+const selectedFont = (document.getElementById('font-type') as HTMLSelectElement).value;
+const resumePreview = document.querySelector('.resumeDiv') as HTMLElement;
+
+// Apply the selected font to the resume preview section
+resumePreview.style.fontFamily = selectedFont;
+}
+
+
+//--------------- title Case ----------------------------
 function changeTitleCase() {
   const selectedCase = (document.getElementById('title-case') as HTMLSelectElement).value;
-  const headings = document.querySelectorAll('.resume-preview h1, .resume-preview h2, .resume-preview h3') as NodeListOf<HTMLElement>;
+  const headings = document.querySelectorAll('.resumeDiv h1, .resumeDiv h2, .resumeDiv h3') as NodeListOf<HTMLElement>;
 
   // Apply the selected title case to all headings in the resume preview
   headings.forEach(heading => {
@@ -57,10 +186,12 @@ function changeTitleCase() {
     }
   });
 }
+  
 
+//--------------- title Case ----------------------------
 function changeTitleStyle() {
   const selectedStyle = (document.getElementById('title-style') as HTMLSelectElement).value;
-  const headings = document.querySelectorAll('.resume-preview h1, .resume-preview h2, .resume-preview h3') as NodeListOf<HTMLElement>;
+  const headings = document.querySelectorAll('.resumeDiv h1, .resumeDiv h2, .resumeDiv h3') as NodeListOf<HTMLElement>;
 
   // Apply the selected style to all headings in the resume preview
   headings.forEach(heading => {
@@ -77,10 +208,12 @@ function changeTitleStyle() {
     }
   });
 }
+  
 
+//--------------- Ruled Position  ----------------------------
 function changeRulePosition() {
   const selectedPosition = (document.getElementById('rule-position') as HTMLSelectElement).value;
-  const headings = document.querySelectorAll('.resume-preview h1, .resume-preview h2, .resume-preview h3') as NodeListOf<HTMLElement>;
+  const headings = document.querySelectorAll('.resumeDiv h1, .resumeDiv h2, .resumeDiv h3') as NodeListOf<HTMLElement>;
 
   // Apply the selected rule position to all headings in the resume preview
   headings.forEach(heading => {
@@ -93,36 +226,18 @@ function changeRulePosition() {
     }
   });
 }
+  
 
+//--------------- Image on/off  ----------------------------
 function toggleImageDisplay() {
   const checkbox = document.getElementById('image-display') as HTMLInputElement;
-  const image = document.getElementById('profile-pic-preview') as HTMLImageElement | null;
+  const image = document.getElementById('picture') as HTMLImageElement | null;
 
-  if (image) {
-    if (checkbox.checked) {
-      // Show the image if the checkbox is checked
-      image.style.display = 'block';
-    } else {
-      // Hide the image if the checkbox is not checked
-      image.style.display = 'none';
-    }
+  if (checkbox.checked) {
+    image!.style.display = 'block';
+  } else {
+    // Hide the image if the checkbox is not checked
+    image!.style.display = 'none';
   }
+    
 }
-
-function changeMargin() {
-  const marginValue = (document.getElementById('margin') as HTMLInputElement).value;
-  const resumePreview = document.querySelector('.resume-preview') as HTMLElement;
-  
-  // Apply the margin value to the left and right margins of the resume preview
-  resumePreview.style.marginLeft = `${marginValue}px`;
-  resumePreview.style.marginRight = `${marginValue}px`;
-}
-
-function changeLineSpacing() {
-  const lineSpacingValue = (document.getElementById('line-spacing') as HTMLInputElement).value;
-  const resumePreview = document.querySelector('.resume-preview') as HTMLElement;
-  
-  // Apply the line spacing value to the resume preview
-  resumePreview.style.lineHeight = `${lineSpacingValue}`;
-}
-

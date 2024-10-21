@@ -2,105 +2,280 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Resume Preview</title>
-  <link rel="stylesheet" href="./simpleLayout.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js"
+    integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="simpleLayout.css" />
 </head>
 
 <body>
-  <!-- Resume Preview Page -->
-  <div class="resume-preview-container">
-    <!-- Left Section (Resume Preview) -->
-    <section class="resume-preview">
-      <header>
-        <!-- Container for picture and name -->
-        <div class="header-content">
+  <div style="width: 100%; display: flex; flex-direction: column;">
+    <!------------------------ Customization ---------------------------------->
+    <div id="CustomDiv" style="text-align: center">
+      <div>
+        <h2 style="color: #302f2f; margin-top: 20px; font-size: 30px;">Customize Your Resume</h2>
+      </div>
+      <div class="customization" style="margin: auto; width: 70%; display: flex; justify-content: space-evenly; ">
+        <div id="customizationDiv" style="display: flex; gap: 30px; margin: 20px 0px;">
           <div>
-            <h1 id="name"></h1>
-            <h3 id="title"></h3>
+            <label for="font-type">Font Type:</label>
+            <select id="font-type" onchange="changeFontType()">
+              <option value="Arial">Arial</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Verdana">Verdana</option>
+            </select>
           </div>
-          <img id="profile-pic-preview" src="" alt="Profile Picture" style="display: none; max-width: 150px;">
+
+          <div>
+            <label for="title-case">Heading Title Case:</label>
+            <select id="title-case" onchange="changeTitleCase()">
+              <option value="uppercase">UPPERCASE</option>
+              <option value="capitalize">Capitalize</option>
+              <option value="lowercase">Lowercase</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="title-style">Heading Title Style:</label>
+            <select id="title-style" onchange="changeTitleStyle()">
+              <option value="none">None</option>
+              <option value="ruled">Ruled</option>
+              <option value="shaded">Shaded</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rule-position">Title Rule Position:</label>
+            <select id="rule-position" onchange="changeRulePosition()">
+              <option value="above">Above</option>
+              <option value="below">Below</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="image-display">Show/Hide Image:</label>
+            <input type="checkbox" id="image-display" onchange="toggleImageDisplay()" />
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!------------------------ Resume ---------------------------------->
+    <div class="resumeDiv" style="margin: auto">
+      <div class="topBar"></div>
+      <div class="BottomBar"></div>
+      <header>
+        <div>
+          <h1><span id="name">TAHA AHMED SIDDIQUI</span></h1>
+          <p class="para"><span id="designation">FRONTEND DEVELOPER</span></p>
+        </div>
+        <img id="picture" src="profile.png" alt="Profile Picture" />
       </header>
+
       <div class="content">
-        <section class="personal-info">
-          <h2>Personal Information</h2>
-          <p id="email"></p>
-          <p id="phone"></p>
-        </section>
+        <aside>
+          <div class="leftSideBar"></div>
 
-        <section class="education">
-          <h2>Education</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Institution</th>
-                <th>Degree</th>
-                <th>Year</th>
-              </tr>
-            </thead>
-            <tbody id="education"></tbody>
-          </table>
-        </section>
+          <section id="contact" class="contact">
+            <h2>CONTACT</h2>
+            <div class="underline"></div>
 
-        <section class="skills">
-          <h2>Skills</h2>
-          <ul id="skills"></ul>
-        </section>
+            <div>
+              <box-icon name="phone" color="#fcca0d"></box-icon>
+              <p><strong>Phone</strong></p>
+              <p><span id="phone">0300-123-4567</span></p>
+            </div>
+            <br />
 
-        <section class="work-experience">
-          <h2>Work Experience</h2>
-          <ul id="experience"></ul>
-        </section>
+            <div>
+              <box-icon name="envelope" color="#fcca0d"></box-icon>
+              <p><strong>Email</strong></p>
+              <p><span id="email">taha_ahmed@gmail.com</span></p>
+            </div>
+            <br />
+
+            <div>
+              <box-icon name="home" color="#fcca0d"></box-icon>
+              <p><strong>Address</strong></p>
+              <p><span id="address">123, Karachi</span></p>
+            </div>
+            <br />
+
+            <div>
+              <box-icon name="linkedin-square" type="logo" color="#fcca0d"></box-icon>
+              <p><strong>LinkedIn</strong></p>
+              <p>
+                <a href="https://www.linkedin.com/in/taha-ahmed-siddiqui-245324175?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B4GjGoxZKRoG0FbI7hbLWyg%3D%3D"
+                  target="_blank"><span id="linkId">linkedin.com/in/taha-ahmed</span></a>
+              </p>
+            </div>
+            <br />
+          </section>
+
+          <section id="education" class="education mt">
+            <h2>EDUCATION</h2>
+            <div class="underline"></div>
+            <p><span id="year1">2024</span></p>
+            <p>
+              <strong><span id="course1">Computer science</span></strong>
+            </p>
+            <p><span id="institute">GIAIC</span></p>
+            <br />
+            <p><span id="year2">2020</span></p>
+            <p>
+              <strong><span id="course2">Abc Degree</span></strong>
+            </p>
+            <p><span id="institute2">Xyz University</span></p>
+          </section>
+
+          <section id="language" class="language mt">
+            <h2>LANGUAGE</h2>
+            <div class="underline"></div>
+            <p><span id="lang1">English</span></p>
+            <p><span id="lang2">Urdu</span></p>
+          </section>
+        </aside>
+
+        <main class="main-content">
+          <div class="rightSideBar"></div>
+
+          <section id="experience" class="experience">
+            <h2>EXPERIENCE</h2>
+            <div class="underline2"></div>
+
+            <div class="experience-items">
+              <p>
+                <span id="ex_start_year">2020</span> -
+                <span id="ex_end_year">2024</span>
+              </p>
+              <p>
+                <strong><span id="company">XYZ Company</span> |
+                  <span id="location">Karachi</span></strong>
+              </p>
+              <p>
+                <strong><span id="role">abc Developer</span></strong>
+              </p>
+              <ul>
+                <li>
+                  <span id="ach1">Developed and implemented new features for client-facing
+                    applications</span>
+                </li>
+                <li>
+                  <span id="ach2">Collaborated with cross-functional teams to debug and
+                    optimize code for performance improvements</span>
+                </li>
+                <li>
+                  <span id="ach3">Led code reviews and mentored junior developers</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="experience-items">
+              <p>
+                <span id="ex_start_year2">2020</span> -
+                <span id="ex_end_year2">2024</span>
+              </p>
+              <p>
+                <strong><span id="company2">XYZ Company</span> |
+                  <span id="location2">Karachi</span></strong>
+              </p>
+              <p>
+                <strong><span id="role2">abc Developer</span></strong>
+              </p>
+              <ul>
+                <li>
+                  <span id="ach12">Developed and implemented new features for client-facing
+                    applications</span>
+                </li>
+                <li>
+                  <span id="ach22">Collaborated with cross-functional teams to debug and
+                    optimize code for performance improvements</span>
+                </li>
+                <li>
+                  <span id="ach32">Led code reviews and mentored junior developers</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="skill" class="skill mt">
+            <h2>EXPERTISE</h2>
+            <div class="underline2"></div>
+
+            <div class="circleDiv">
+              <div class="circularCard">
+                <div class="htmlDiv">
+                  <div class="innerDiv">
+                    <h1>
+                      <span id="skill1_level1">90</span><small>%</small>
+                    </h1>
+                  </div>
+                </div>
+                <h1 class="m_Auto"><span id="skill1">HTML</span></h1>
+              </div>
+
+              <div class="circularCard">
+                <div class="htmlDiv">
+                  <div class="innerDiv">
+                    <h1>
+                      <span id="skill2_level1">80</span><small>%</small>
+                    </h1>
+                  </div>
+                </div>
+                <h1 class="m_Auto"><span id="skill2">CSS</span></h1>
+              </div>
+
+              <div class="circularCard">
+                <div class="htmlDiv">
+                  <div class="innerDiv">
+                    <h1>
+                      <span id="skill3_level1">70</span><small>%</small>
+                    </h1>
+                  </div>
+                </div>
+                <h1 class="m_Auto"><span id="skill3">TypeScript</span></h1>
+              </div>
+
+              <div class="circularCard">
+                <div class="htmlDiv">
+                  <div class="innerDiv">
+                    <h1>
+                      <span id="skill4_level1">60</span><small>%</small>
+                    </h1>
+                  </div>
+                </div>
+                <h1 class="m_Auto"><span id="skill4">Next.js</span></h1>
+              </div>
+            </div>
+          </section>
+
+          <section id="ref" class="refrence mt">
+            <h2>REFERENCE</h2>
+            <div class="underline2"></div>
+            <p>Available upon request</p>
+          </section>
+        </main>
       </div>
-      <button onclick="window.print()">Print Resume</button>
-    </section>
-
-    <!-- Right Section (Customization) -->
-    <aside class="resume-customize">
-      <h2>Customize Resume</h2>
-      <div class="customization">
-        <label for="font-type">Font Type:</label>
-        <select id="font-type" onchange="changeFontType()">
-          <option value="Arial">Arial</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Verdana">Verdana</option>
-        </select>
-
-        <label for="title-case">Heading Title Case:</label>
-        <select id="title-case" onchange="changeTitleCase()">
-          <option value="uppercase">UPPERCASE</option>
-          <option value="capitalize">Capitalize</option>
-          <option value="lowercase">Lowercase</option>
-        </select>
-
-        <label for="title-style">Heading Title Style:</label>
-        <select id="title-style" onchange="changeTitleStyle()">
-          <option value="none">None</option>
-          <option value="ruled">Ruled</option>
-          <option value="shaded">Shaded</option>
-        </select>
-
-        <label for="rule-position">Title Rule Position:</label>
-        <select id="rule-position" onchange="changeRulePosition()">
-          <option value="above">Above</option>
-          <option value="below">Below</option>
-        </select>
-
-        <label for="image-display">Show/Hide Image:</label>
-        <input type="checkbox" id="image-display" onchange="toggleImageDisplay()">
-
-        <label for="margin">Horizontal Margin:</label>
-        <input type="range" id="margin" min="0" max="50" value="0" onchange="changeMargin()">
-
-        <label for="line-spacing">Line Spacing:</label>
-        <input type="range" id="line-spacing" min="1" max="2" step="0.1" value="1" onchange="changeLineSpacing()">
-      </div>
-    </aside>
+    </div>
   </div>
 
-  <script src="simpleLayoutScript.js"></script>
+  <div class="btnDiv">
+    <button id="contact_btn" class="btn">Contact</button>
+    <button id="edu_btn" class="btn">Education</button>
+    <button id="skill_btn" class="btn">Expertise</button>
+    <button id="lang_btn" class="btn">Language</button>
+    <button id="exp_btn" class="btn">Experience</button>
+    <button id="ref_btn" class="btn">Reference</button>
+    <button id="edit_btn" class="btn">Edit</button>
+    <button id="print_btn" class="btn">Print</button>
+    <a id="anchor" href="#"><button id="share_btn" class="btn">Shreable Link</button></a>
+    <button id="copy_btn" class="btn">Copy Link</button>
+  </div>
 </body>
+
+<script src="simpleLayoutScript.js"></script>
 
 </html>
